@@ -6,3 +6,6 @@ class  BookListView(ListView):
     template_name = "book_list.html"
 
 
+
+
+
