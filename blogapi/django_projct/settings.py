@@ -45,11 +45,12 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = { # new
     "DEFAULT_PERMISSION_CLASSES": [
-    "rest_framework.permissions.AllowAny",
+    "rest_framework.permissions.IsAuthenticated",
     ],
 }
 
-AUTH_USER_MODEL = "accounts.CustomUser"
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -65,6 +66,12 @@ CORS_ORIGIN_WHITELIST = (
 "http://localhost:3000",
 "http://localhost:8000",
 )
+
+REST_FRAMEWORK = {
+"DEFAULT_PERMISSION_CLASSES": [
+"rest_framework.permissions.IsAuthenticated", # new
+],
+}
 
 CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"]   # new
 
