@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('posts.urls')),  # Include the posts app URLs
     path('api-auth/', include('rest_framework.urls')),  # Include DRF's authentication
+    path("api/v1/dj-rest-auth/", include("dj_rest_auth.urls")), # Include dj-rest-auth URLs for authentication
+    path("api/v1/dj-rest-auth/registration/", include("dj_rest_auth.registration.urls")), # Include registration URLs for dj-rest-auth
 ]
