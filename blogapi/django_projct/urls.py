@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),  # Admin URL
     path('api/v1/', include('posts.urls')),  # Include the posts app URLs
     path('api-auth/', include('rest_framework.urls')),  # Include DRF's authentication
     path("api/v1/dj-rest-auth/", include("dj_rest_auth.urls")), # Include dj-rest-auth URLs for authentication
