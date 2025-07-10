@@ -16,3 +16,5 @@ class UserViewSet(viewsets.ModelViewSet): # new
     permission_classes = [IsAdminUser]  # Only admin users can access this view
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
+
+    

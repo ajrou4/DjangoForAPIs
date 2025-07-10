@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework.authtoken",
     "dj_rest_auth",
+    "drf_spectacular",
     
     "allauth",
     "allauth.account",
@@ -53,16 +54,14 @@ INSTALLED_APPS = [
     "dj_rest_auth.registration",
 ]
 
-REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.IsAuthenticated",
-    ],
-    "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.SessionAuthentication", 
-        "rest_framework.authentication.TokenAuthentication",
-    ],
-}
 
+
+SPECTACULAR_SETTINGS = {
+"TITLE": "Blog API Project",
+"DESCRIPTION": "A sample blog to learn about DRF",
+"VERSION": "1.0.0",
+# OTHER SETTINGS
+}
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
@@ -84,9 +83,14 @@ CORS_ORIGIN_WHITELIST = (
 )
 
 REST_FRAMEWORK = {
-"DEFAULT_PERMISSION_CLASSES": [
-"rest_framework.permissions.IsAuthenticated", # new
-],
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication", 
+        "rest_framework.authentication.TokenAuthentication",
+    ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema", # new
 }
 
 CSRF_TRUSTED_ORIGINS = ["http://localhost:3000"]   # new
